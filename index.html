@@ -3,22 +3,513 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tính Nhanh Làm Đúng - Game Toán Học</title>
+    <title>Bé Vui Học Toán - Vừa học vừa chơi, khơi nguồn sáng tạo!</title>
+    <meta name="description" content="Website học toán vui nhộn dành cho trẻ em với nhiều trò chơi thú vị">
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Nunito', sans-serif;
+        }
+        
+        .game-card {
+            transition: all 0.3s ease;
+        }
+        
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .badge {
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            text-transform: uppercase;
+        }
+    </style>
 </head>
-<body>
-    <div id="root"></div>
-    
+<body class="bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="text-5xl float-animation">🎓</div>
+                    <div>
+                        <h1 class="text-3xl font-extrabold gradient-text">Bé Vui Học Toán</h1>
+                        <p class="text-gray-600 text-sm">Vừa học vừa chơi - Khơi nguồn sáng tạo! 🚀</p>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center gap-4">
+                    <div class="bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-4 py-2 rounded-full font-bold">
+                        Xin chào bạn Anh 👋
+                    </div>
+                    <div class="text-4xl">☀️</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Welcome Banner -->
+        <div class="bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 rounded-3xl p-8 mb-8 text-white shadow-2xl">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="mb-4 md:mb-0">
+                    <h2 class="text-4xl font-bold mb-2">Chào mừng đến với thế giới toán học! 🎉</h2>
+                    <p class="text-xl opacity-90">Hãy chọn một trò chơi và bắt đầu hành trình học tập vui vẻ nhé!</p>
+                </div>
+                <div class="text-8xl float-animation">🎮</div>
+            </div>
+        </div>
+
+        <!-- Games Grid -->
+        <div class="mb-8">
+            <h3 class="text-3xl font-bold text-gray-800 mb-6 flex items-center gap-3">
+                <span class="text-4xl">🎯</span>
+                Trò Chơi Toán Học
+            </h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Game 1: Tính Nhanh Làm Đúng -->
+                <div class="game-card bg-gradient-to-br from-yellow-400 to-orange-500 rounded-3xl p-6 cursor-pointer shadow-xl" onclick="playGame('speed-math')">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="badge bg-white text-orange-600">MATH</span>
+                        <div class="text-6xl">⚡</div>
+                    </div>
+                    <h4 class="text-2xl font-bold text-white mb-2">Tính nhanh làm đúng</h4>
+                    <p class="text-white opacity-90 text-sm mb-4">Thử thách tốc độ tính toán</p>
+                    <div class="flex gap-2 flex-wrap">
+                        <span class="text-xs bg-white bg-opacity-30 text-white px-3 py-1 rounded-full">Cộng trừ</span>
+                        <span class="text-xs bg-white bg-opacity-30 text-white px-3 py-1 rounded-full">Nhân chia</span>
+                        <span class="text-xs bg-white bg-opacity-30 text-white px-3 py-1 rounded-full">3 độ khó</span>
+                    </div>
+                </div>
+
+                <!-- Game 2: Xây Dựng Lầu Đài (Coming Soon) -->
+                <div class="game-card bg-gradient-to-br from-orange-400 to-red-500 rounded-3xl p-6 opacity-60 relative shadow-xl">
+                    <div class="absolute top-4 right-4 bg-white text-red-600 text-xs font-bold px-3 py-1 rounded-full">SẮP RA MẮT</div>
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="badge bg-white text-orange-600">MATH</span>
+                        <div class="text-6xl">🏰</div>
+                    </div>
+                    <h4 class="text-2xl font-bold text-white mb-2">Xây dựng lầu đài</h4>
+                    <p class="text-white opacity-90 text-sm mb-4">Giải toán để xây lầu đài cao nhất</p>
+                </div>
+
+                <!-- Game 3: Đi Tìm Kho Báu (Coming Soon) -->
+                <div class="game-card bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-3xl p-6 opacity-60 relative shadow-xl">
+                    <div class="absolute top-4 right-4 bg-white text-yellow-600 text-xs font-bold px-3 py-1 rounded-full">SẮP RA MẮT</div>
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="badge bg-white text-yellow-600">MATH</span>
+                        <div class="text-6xl">💎</div>
+                    </div>
+                    <h4 class="text-2xl font-bold text-white mb-2">Đi tìm kho báu</h4>
+                    <p class="text-white opacity-90 text-sm mb-4">Sưu tập kim cương vào rương vàng</p>
+                </div>
+
+                <!-- Game 4: Bóng Bay Thần Kỳ (Coming Soon) -->
+                <div class="game-card bg-gradient-to-br from-blue-400 to-blue-600 rounded-3xl p-6 opacity-60 relative shadow-xl">
+                    <div class="absolute top-4 right-4 bg-white text-blue-600 text-xs font-bold px-3 py-1 rounded-full">SẮP RA MẮT</div>
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="badge bg-white text-blue-600">MATH</span>
+                        <div class="text-6xl">🎈</div>
+                    </div>
+                    <h4 class="text-2xl font-bold text-white mb-2">Bóng bay thần kỳ</h4>
+                    <p class="text-white opacity-90 text-sm mb-4">Chạm vào bóng bằng chữ số đúng</p>
+                </div>
+
+                <!-- Game 5: Cuộc Đua Của Rùa (Coming Soon) -->
+                <div class="game-card bg-gradient-to-br from-green-400 to-green-600 rounded-3xl p-6 opacity-60 relative shadow-xl">
+                    <div class="absolute top-4 right-4 bg-white text-green-600 text-xs font-bold px-3 py-1 rounded-full">SẮP RA MẮT</div>
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="badge bg-white text-green-600">LOGIC</span>
+                        <div class="text-6xl">🐢</div>
+                    </div>
+                    <h4 class="text-2xl font-bold text-white mb-2">Cuộc đua của Rùa</h4>
+                    <p class="text-white opacity-90 text-sm mb-4">Giúp chú rùa về đích nhanh nhất</p>
+                </div>
+
+                <!-- Game 6: Lớn Hơn Hay Nhỏ Hơn (Coming Soon) -->
+                <div class="game-card bg-gradient-to-br from-lime-400 to-green-500 rounded-3xl p-6 opacity-60 relative shadow-xl">
+                    <div class="absolute top-4 right-4 bg-white text-green-600 text-xs font-bold px-3 py-1 rounded-full">SẮP RA MẮT</div>
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="badge bg-white text-green-600">LOGIC</span>
+                        <div class="text-6xl">⚖️</div>
+                    </div>
+                    <h4 class="text-2xl font-bold text-white mb-2">Lớn hơn hay nhỏ hơn?</h4>
+                    <p class="text-white opacity-90 text-sm mb-4">So sánh số lượng các con thú</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <div class="bg-white rounded-3xl p-8 shadow-xl mb-8">
+            <h3 class="text-3xl font-bold text-gray-800 mb-6 text-center">Tại sao chọn Bé Vui Học Toán? 🌟</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="text-center p-6">
+                    <div class="text-6xl mb-4">🎨</div>
+                    <h4 class="text-xl font-bold text-gray-800 mb-2">Giao diện đẹp mắt</h4>
+                    <p class="text-gray-600">Màu sắc sinh động, thiết kế thân thiện với trẻ em</p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="text-6xl mb-4">🎯</div>
+                    <h4 class="text-xl font-bold text-gray-800 mb-2">Học qua chơi</h4>
+                    <p class="text-gray-600">Phương pháp học tập hiệu quả thông qua trò chơi</p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="text-6xl mb-4">📈</div>
+                    <h4 class="text-xl font-bold text-gray-800 mb-2">Theo dõi tiến độ</h4>
+                    <p class="text-gray-600">Hệ thống điểm số và thành tích rõ ràng</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-purple-600 to-pink-600 text-white py-8 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <div class="text-5xl mb-4">🎓</div>
+            <h3 class="text-2xl font-bold mb-2">Bé Vui Học Toán</h3>
+            <p class="opacity-90 mb-4">Vừa học vừa chơi - Khơi nguồn sáng tạo!</p>
+            <p class="text-sm opacity-75">© 2024 Bé Vui Học Toán. Made with ❤️ for kids</p>
+        </div>
+    </footer>
+
+    <!-- Game Modal Container -->
+    <div id="gameModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl w-full max-w-4xl max-h-[90vh] overflow-y-auto">
+            <div class="sticky top-0 bg-white border-b p-4 flex justify-between items-center rounded-t-3xl">
+                <h3 class="text-2xl font-bold text-gray-800">Đang chơi</h3>
+                <button onclick="closeGame()" class="text-4xl hover:text-red-500 transition">&times;</button>
+            </div>
+            <div id="gameContent" class="p-4">
+                <!-- Game will load here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- React & Game Scripts -->
     <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    
+
     <script type="text/babel">
-        // Paste toàn bộ code React component ở đây (code game ở artifact bên phải)
-        // Sau đó thêm dòng này ở cuối:
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<MathSpeedGame />);
+        const { Zap, Trophy, Clock, Star, Home, X } = lucide;
+
+        // Math Speed Game Component
+        const MathSpeedGame = () => {
+          const [gameState, setGameState] = React.useState('menu');
+          const [level, setLevel] = React.useState(null);
+          const [question, setQuestion] = React.useState(null);
+          const [answer, setAnswer] = React.useState('');
+          const [score, setScore] = React.useState(0);
+          const [timeLeft, setTimeLeft] = React.useState(60);
+          const [streak, setStreak] = React.useState(0);
+          const [feedback, setFeedback] = React.useState('');
+
+          const levels = {
+            easy: { name: 'Dễ', range: 20, operations: ['+', '-'], time: 60, icon: '😊' },
+            medium: { name: 'Trung Bình', range: 50, operations: ['+', '-', '×'], time: 45, icon: '🤔' },
+            hard: { name: 'Khó', range: 100, operations: ['+', '-', '×', '÷'], time: 30, icon: '🔥' }
+          };
+
+          const generateQuestion = (lvl) => {
+            const config = levels[lvl];
+            const op = config.operations[Math.floor(Math.random() * config.operations.length)];
+            let num1 = Math.floor(Math.random() * config.range) + 1;
+            let num2 = Math.floor(Math.random() * config.range) + 1;
+            let correctAnswer;
+
+            switch(op) {
+              case '+':
+                correctAnswer = num1 + num2;
+                break;
+              case '-':
+                if (num1 < num2) [num1, num2] = [num2, num1];
+                correctAnswer = num1 - num2;
+                break;
+              case '×':
+                num1 = Math.floor(Math.random() * 12) + 1;
+                num2 = Math.floor(Math.random() * 12) + 1;
+                correctAnswer = num1 * num2;
+                break;
+              case '÷':
+                num2 = Math.floor(Math.random() * 10) + 1;
+                correctAnswer = Math.floor(Math.random() * 12) + 1;
+                num1 = num2 * correctAnswer;
+                break;
+              default:
+                correctAnswer = 0;
+            }
+
+            return { num1, num2, operation: op, correctAnswer };
+          };
+
+          const startGame = (selectedLevel) => {
+            setLevel(selectedLevel);
+            setGameState('playing');
+            setScore(0);
+            setStreak(0);
+            setTimeLeft(levels[selectedLevel].time);
+            setQuestion(generateQuestion(selectedLevel));
+            setAnswer('');
+            setFeedback('');
+          };
+
+          const checkAnswer = () => {
+            if (answer === '') return;
+
+            const userAnswer = parseInt(answer);
+            if (userAnswer === question.correctAnswer) {
+              const points = (streak + 1) * 10;
+              setScore(score + points);
+              setStreak(streak + 1);
+              setFeedback(`🎉 Đúng rồi! +${points} điểm`);
+              setTimeout(() => {
+                setQuestion(generateQuestion(level));
+                setAnswer('');
+                setFeedback('');
+              }, 500);
+            } else {
+              setStreak(0);
+              setFeedback(`❌ Sai rồi! Đáp án: ${question.correctAnswer}`);
+              setTimeout(() => {
+                setQuestion(generateQuestion(level));
+                setAnswer('');
+                setFeedback('');
+              }, 1500);
+            }
+          };
+
+          const handleKeyPress = (e) => {
+            if (e.key === 'Enter' && gameState === 'playing') {
+              checkAnswer();
+            }
+          };
+
+          React.useEffect(() => {
+            if (gameState === 'playing' && timeLeft > 0) {
+              const timer = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
+              return () => clearTimeout(timer);
+            } else if (timeLeft === 0 && gameState === 'playing') {
+              setGameState('gameover');
+            }
+          }, [timeLeft, gameState]);
+
+          const resetGame = () => {
+            setGameState('menu');
+            setLevel(null);
+            setScore(0);
+            setStreak(0);
+            setAnswer('');
+            setFeedback('');
+          };
+
+          if (gameState === 'menu') {
+            return (
+              <div className="p-4">
+                <div className="text-center mb-8">
+                  <div className="inline-block bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full p-4 mb-4">
+                    <Zap className="w-12 h-12 text-white" />
+                  </div>
+                  <h2 className="text-4xl font-bold text-gray-800 mb-2">Tính Nhanh Làm Đúng</h2>
+                  <p className="text-gray-600 text-lg">Chọn độ khó để bắt đầu! ⚡</p>
+                </div>
+
+                <div className="space-y-4 max-w-2xl mx-auto">
+                  {Object.entries(levels).map(([key, lvl]) => (
+                    <button
+                      key={key}
+                      onClick={() => startGame(key)}
+                      className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white rounded-2xl p-6 transition transform hover:scale-105 shadow-lg"
+                    >
+                      <div className="flex items-center justify-between">
+                        <div className="text-left">
+                          <div className="text-3xl mb-2">{lvl.icon}</div>
+                          <h3 className="text-2xl font-bold">{lvl.name}</h3>
+                          <p className="text-blue-100 text-sm mt-1">
+                            Số từ 1-{lvl.range} • {lvl.operations.join(', ')} • {lvl.time}s
+                          </p>
+                        </div>
+                        <div className="text-4xl">→</div>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+
+                <div className="mt-8 text-center text-gray-600">
+                  <p className="text-sm">💡 Mẹo: Làm đúng liên tiếp để được điểm thưởng!</p>
+                </div>
+              </div>
+            );
+          }
+
+          if (gameState === 'playing') {
+            return (
+              <div className="p-4">
+                <div className="flex justify-between items-center mb-8 flex-wrap gap-4">
+                  <div className="flex items-center gap-4">
+                    <button
+                      onClick={resetGame}
+                      className="p-2 hover:bg-gray-100 rounded-full transition"
+                    >
+                      <Home className="w-6 h-6 text-gray-600" />
+                    </button>
+                    <div className="flex items-center gap-2 bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-4 py-2 rounded-full">
+                      <Trophy className="w-5 h-5" />
+                      <span className="font-bold text-lg">{score}</span>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2 bg-gradient-to-r from-red-500 to-pink-600 text-white px-4 py-2 rounded-full">
+                    <Clock className="w-5 h-5" />
+                    <span className="font-bold text-lg">{timeLeft}s</span>
+                  </div>
+                </div>
+
+                {streak > 2 && (
+                  <div className="mb-4 bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-4 py-2 rounded-full text-center animate-pulse">
+                    <div className="flex items-center justify-center gap-2">
+                      <Star className="w-5 h-5" />
+                      <span className="font-bold">Streak x{streak}! 🔥</span>
+                    </div>
+                  </div>
+                )}
+
+                <div className="text-center mb-8">
+                  {question && (
+                    <div className="bg-gradient-to-r from-purple-100 to-pink-100 rounded-3xl p-8 md:p-12 mb-6">
+                      <div className="text-5xl md:text-7xl font-bold text-gray-800 mb-4">
+                        {question.num1} {question.operation} {question.num2}
+                      </div>
+                      <div className="text-3xl md:text-4xl text-gray-600">= ?</div>
+                    </div>
+                  )}
+
+                  <input
+                    type="number"
+                    value={answer}
+                    onChange={(e) => setAnswer(e.target.value)}
+                    onKeyPress={handleKeyPress}
+                    placeholder="Nhập đáp án..."
+                    autoFocus
+                    className="w-full text-3xl md:text-4xl text-center border-4 border-purple-300 rounded-2xl p-4 md:p-6 mb-4 focus:outline-none focus:border-purple-500 transition"
+                  />
+
+                  <button
+                    onClick={checkAnswer}
+                    className="w-full bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white text-xl md:text-2xl font-bold rounded-2xl p-4 md:p-6 transition transform hover:scale-105 shadow-lg"
+                  >
+                    Kiểm tra ✓
+                  </button>
+
+                  {feedback && (
+                    <div className={`mt-4 text-xl md:text-2xl font-bold ${feedback.includes('Đúng') ? 'text-green-600' : 'text-red-600'} animate-bounce`}>
+                      {feedback}
+                    </div>
+                  )}
+                </div>
+
+                <div className="text-center text-gray-500 text-sm">
+                  💡 Nhấn Enter để kiểm tra nhanh!
+                </div>
+              </div>
+            );
+          }
+
+          if (gameState === 'gameover') {
+            return (
+              <div className="p-4 text-center">
+                <div className="inline-block bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full p-6 mb-6">
+                  <Trophy className="w-16 h-16 text-white" />
+                </div>
+
+                <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Hết giờ! ⏰</h2>
+                
+                <div className="bg-gradient-to-r from-purple-100 to-pink-100 rounded-3xl p-8 mb-8">
+                  <div className="text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 mb-2">
+                    {score}
+                  </div>
+                  <div className="text-2xl text-gray-600">điểm</div>
+                </div>
+
+                <div className="grid grid-cols-2 gap-4 mb-8 max-w-md mx-auto">
+                  <div className="bg-blue-50 rounded-2xl p-4">
+                    <div className="text-2xl md:text-3xl font-bold text-blue-600">{levels[level].name}</div>
+                    <div className="text-gray-600 text-sm">Độ khó</div>
+                  </div>
+                  <div className="bg-green-50 rounded-2xl p-4">
+                    <div className="text-2xl md:text-3xl font-bold text-green-600">{Math.floor(score / 10)}</div>
+                    <div className="text-gray-600 text-sm">Câu đúng</div>
+                  </div>
+                </div>
+
+                <div className="space-y-4 max-w-md mx-auto">
+                  <button
+                    onClick={() => startGame(level)}
+                    className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white text-lg md:text-xl font-bold rounded-2xl p-4 md:p-5 transition transform hover:scale-105 shadow-lg"
+                  >
+                    Chơi lại cùng độ khó 🔄
+                  </button>
+                  <button
+                    onClick={resetGame}
+                    className="w-full bg-gradient-to-r from-gray-400 to-gray-500 hover:from-gray-500 hover:to-gray-600 text-white text-lg md:text-xl font-bold rounded-2xl p-4 md:p-5 transition transform hover:scale-105 shadow-lg"
+                  >
+                    Chọn độ khó khác 🏠
+                  </button>
+                </div>
+              </div>
+            );
+          }
+        };
+
+        // Game Management Functions
+        function playGame(gameId) {
+            const modal = document.getElementById('gameModal');
+            const content = document.getElementById('gameContent');
+            
+            if (gameId === 'speed-math') {
+                modal.classList.remove('hidden');
+                const root = ReactDOM.createRoot(content);
+                root.render(<MathSpeedGame />);
+            } else {
+                alert('Trò chơi này đang được phát triển! Vui lòng quay lại sau 🚧');
+            }
+        }
+
+        function closeGame() {
+            const modal = document.getElementById('gameModal');
+            const content = document.getElementById('gameContent');
+            modal.classList.add('hidden');
+            content.innerHTML = '';
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('gameModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeGame();
+            }
+        });
     </script>
 </body>
 </html>
